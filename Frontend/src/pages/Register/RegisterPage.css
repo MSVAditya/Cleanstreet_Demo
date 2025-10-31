@@ -16,7 +16,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   margin: 0;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* Navigation bar */
@@ -101,12 +101,14 @@ body {
 
 /* Main */
 .main-content {
-  min-height: 100vh;
+  position: fixed;
+  top: 40px;
+  height: calc(100vh - 60px);
   display: flex;
   justify-content: center;
-  align-items: center;
-  /* padding-top: 90px; */
-  position: relative;
+  align-items: flex-start;
+  padding-top: 10px;
+  overflow: hidden;
 }
 
 /* Form */
@@ -115,7 +117,7 @@ body {
   padding: 2.5rem;
   border-radius: 12px;
   box-shadow: var(--shadow-lg);
-  width: 400px;
+  width: 600px;
   z-index: 10;
   border: 1px solid #f3f3f3;
 }
@@ -130,14 +132,17 @@ body {
 
 .form-group {
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .form-group label {
   font-weight: 500;
   font-size: 0.875rem;
-  display: block;
+  flex: 0 0 120px;
   text-align: left;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
 }
 
 .optional {
@@ -146,7 +151,7 @@ body {
 }
 
 input {
-  width: 100%;
+  flex: 1;
   padding: 0.65rem 0.8rem;
   border: 1px solid #d1d5db;
   border-radius: 6px;
@@ -260,12 +265,27 @@ input:focus {
   .logo {
     font-size: 1.6rem;
   }
-  
+
   .form-container {
     width: 90%;
     margin-top: 2rem;
   }
-  
+
+  .form-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    flex: none;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    width: 100%;
+  }
+
   .shape-left,
   .shape-right {
     display: none;

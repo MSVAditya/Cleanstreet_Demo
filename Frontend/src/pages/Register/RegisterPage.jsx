@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './RegisterPage.css';
 import { auth } from '../../services/auth';
+import { useToast } from '../../toast/ToastProvider';
 
 const RegisterPage = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     fullName: '',
     username: '',
@@ -30,7 +32,7 @@ const RegisterPage = () => {
         password: formData.password,
       };
       const res = await auth.register(payload);
-      alert('Registration successful');
+      toast({ title: 'Success', description: 'Registration successful', type: 'success' });
       console.log('Register response:', res);
       navigate('/login');
     } catch (err) {

@@ -16,7 +16,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   margin: 0;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* Navigation bar */
@@ -101,12 +101,13 @@ body {
 
 /* Main */
 .main-content {
-  min-height: 100vh;
+  position: fixed;
+  top: -60px;
+  height: calc(100vh - 60px);
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding-top: 90px; */
-  position: relative;
+  overflow: hidden;
 }
 
 /* Form */
@@ -263,7 +264,6 @@ input:focus {
   
   .form-container {
     width: 90%;
-    margin-top: 2rem;
   }
   
   .shape-left,

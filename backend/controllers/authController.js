@@ -78,7 +78,7 @@ export const forgotPassword = async (req, res) => {
     // In production: send resetToken via email
     res.status(200).json({
       message: "Password reset token generated successfully",
-      resetToken, // ⚠️ Only for testing — don’t send in prod
+      resetToken, //  Only for testing — don’t send in prod
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

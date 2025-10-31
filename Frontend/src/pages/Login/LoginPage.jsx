@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 import { auth } from '../../services/auth';
+import { useToast } from '../../toast/ToastProvider';
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     fullName: '',
     username: '',
@@ -28,7 +30,7 @@ const LoginPage = () => {
         email: formData.email,
         password: formData.password,
       });
-      alert('Login successful');
+      toast({ title: 'Success', description: 'Login successful', type: 'success' });
       console.log('Login response:', res);
       navigate('/dashboard');
     } catch (err) {
